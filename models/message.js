@@ -1,13 +1,13 @@
-import mongoose, {Schema} from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
-const messageSchema = new Schema({
-    title: String,
-    description: String,
-},
-{
-    timestamps: true,
-    versionKey: false
+const messageSchema = new Schema(
+    {
+        title: String,
+        description: String,
+    },
+    {
+        timestamps: true,
 
-})
-const message = mongoose.models.message|| mongoose.model("Topic", messageSchema);
+    })
+const message = mongoose.models.message || mongoose.model("message", messageSchema);
 export default message;
