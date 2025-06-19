@@ -39,14 +39,4 @@ export async function DELETE(request) {
     return NextResponse.json({error: "Failed to delete message"}, {status: 500});
   }
 }
-export async function PUT(request) {
-  try {
-    await connectDB();
-    const {id, title, description} = await request.json();
-    await message.findByIdAndUpdate(id, {title, description});
-    return NextResponse.json({message: "message updated"}, {status: 200});
-  } catch (error) {
-    console.error("Error updating message:", error);
-    return NextResponse.json({error: "Failed to update message"}, {status: 500});
-  }
-}
+
