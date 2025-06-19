@@ -2,26 +2,23 @@ const getThoughts = async () => {
     try {
         const res = await fetch("http://localhost:3000/api/message", { caches: "no-store", }
         );
-
         if (!res.ok) {
             throw new Error("failed to fetch thought")
-
         }
-        return res.json();
-        console.log(res.json())
+    const data = res.json();
+    console.log(data);
+    return data;    
 
     } catch(error) {
         console.log("error loading thoughts:", error);
-
-
     }
-
-
 }
 
 export default async function Listname() {
     let message = [];
     try {
+        console.log("assigning to data")
+        console.log(message)
         const data = await getThoughts();
         message = Array.isArray(data?.message) ? data.message : [
             {

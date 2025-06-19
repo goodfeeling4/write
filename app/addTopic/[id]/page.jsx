@@ -47,11 +47,11 @@ export default function Page(prams) {
   
   return (
     <div>
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
+      <div className="flex flex-col items-center justify-center min-h-screen dark:bg-gray-700 bg-gray-100 p-4">
 
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4 sm:w-[50vw] sm:h-[80vh] w-[90vw] h-[80vh] ">
-          <label className="flex flex-col">
-            <span className="text-sm font-medium">Title</span>
+        <form onSubmit={handleSubmit} className="flex flex-col dark:text-[#cc9ccc] text-[1.3rem] gap-4 sm:w-[50vw] sm:h-[80vh] w-[90vw] h-[80vh] ">
+          <label className="flex flex-col ">
+            <span className="font-medium">Title</span>
             <input
               type="text"
               name="title"
@@ -64,7 +64,7 @@ export default function Page(prams) {
           </label>
 
           <label className="flex flex-col">
-            <span className="text-sm font-medium">Content</span>
+            <span className=" font-medium">Content</span>
             <textarea
               name="description"
               value={formData.description}
