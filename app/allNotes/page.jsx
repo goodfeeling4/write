@@ -1,6 +1,6 @@
 const getThoughts = async () => {
   try {
-      const res = await fetch("http://localhost:3000/api/message", { caches: "no-store", }
+      const res = await fetch("PORT_WRITE/api/message", { caches: "no-store", }
       );
       if (!res.ok) {
           throw new Error("failed to fetch thought")
