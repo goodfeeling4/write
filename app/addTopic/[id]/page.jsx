@@ -24,11 +24,11 @@ export default function Page(prams) {
       });
 
       if (response.ok) {
-        setMessage("Message created successfully!");
+        setMessage("thoughts added successfully!");
         setFormData({ title: "", description: "" });
       } else {
         const errorData = await response.json();
-        setMessage(`Error: ${errorData.error || "Failed to create message"}`);
+        setMessage(`Error: ${errorData.error || "Failed to add thoughts"}`);
       }
     } catch (error) {
       console.error("Error submitting form:", error);
