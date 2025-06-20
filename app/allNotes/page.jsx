@@ -1,40 +1,40 @@
-const getThoughts = async () => {
-  try {
-      const res = await fetch(`${process.env.PORT_WRITE}/api/message`, { caches: "no-store", }
-      );
-      if (!res.ok) {
-          throw new Error("failed to fetch thought")
-      }
-  const data = await res.json();
-  console.log(data);
-  return data;    
+// const getThoughts = async () => {
+//   try {
+//       const res = await fetch(`${process.env.PORT_WRITE}/api/message`, { caches: "no-store", }
+//       );
+//       if (!res.ok) {
+//           throw new Error("failed to fetch thought")
+//       }
+//   const data = await res.json();
+//   console.log(data);
+//   return data;    
 
-  } catch(error) {
-      console.log("error loading thoughts:", error);
-  }
-}
+//   } catch(error) {
+//       console.log("error loading thoughts:", error);
+//   }
+// }
 
 export default async function Page() {
   
-  const thoughts = await getThoughts();
+//   const thoughts = await getThoughts();
 
-if (!thoughts || !Array.isArray(thoughts)) {
-  console.error("No thoughts found or invalid format");
-  return {
-    props: {
-      thoughts: [],
-    },
-  };
-}
+// if (!thoughts || !Array.isArray(thoughts)) {
+//   console.error("No thoughts found or invalid format");
+//   return {
+//     props: {
+//       thoughts: [],
+//     },
+//   };
+// }
 
 
   
 
   return (
       <div className=" flex flex-col gap-2 ">
-          {thoughts.length === 0 ? (
+          {/* {thoughts.length === 0 ? ( */}
               <div className="text-center text-gray-500 mt-8">No messages found.</div>
-          ) : (
+          {/* ) : (
               thoughts.map((m) => (
                   <div key={m._id || m.title} className="flex justify-around mx-[10vw] m-2 p-2  dark:bg-gray-700 bg-gray-300 dark:text-blue-200 rounded-md ">
                       <div>
@@ -47,7 +47,10 @@ if (!thoughts || !Array.isArray(thoughts)) {
                       </div>
                   </div>
               ))
-          )}
+          )} */}
+          <div>
+            all thought
+          </div>
       </div>
   );
 }
