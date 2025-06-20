@@ -23,7 +23,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 ;
 const getThoughts = async ()=>{
     try {
-        const res = await fetch("http://localhost:3000/api/message", {
+        const res = await fetch(`${process.env.PORT_WRITE}/api/message`, {
             caches: "no-store"
         });
         if (!res.ok) {

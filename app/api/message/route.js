@@ -28,15 +28,22 @@ export async function GET() {
   }
 }
 
-export async function DELETE(request) {
-  try {
-    await connectDB();
-    const {id} = await request.json();
-    await message.findByIdAndDelete(id);
-    return NextResponse.json({message: "message deleted"}, {status: 200});
-  } catch (error) {
-    console.error("Error deleting message:", error);
-    return NextResponse.json({error: "Failed to delete message"}, {status: 500});
-  }
-}
+// export async function DELETE(request) {
+//   try {
+//     await connectDB();
+//     const {id} = await request.json();
+//     await message.findByIdAndDelete(id);
+//     return NextResponse.json({message: "message deleted"}, {status: 200});
+//   } catch (error) {
+//     console.error("Error deleting message:", error);
+//     return NextResponse.json({error: "Failed to delete message"}, {status: 500});
+//   }
+// }
 
+
+export async function DELETE(request) {
+  const id = request.nextUrl.searchPrams.get("id");
+  await connectDB();
+  await message.findByIdAndDelete(id);
+  return NextResponse.json({ message: "thought is deleted"}, {status: 200});
+  }

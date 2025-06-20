@@ -157,23 +157,14 @@ async function GET() {
     }
 }
 async function DELETE(request) {
-    try {
-        await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$mongodb$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"])();
-        const { id } = await request.json();
-        await __TURBOPACK__imported__module__$5b$project$5d2f$models$2f$message$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].findByIdAndDelete(id);
-        return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
-            message: "message deleted"
-        }, {
-            status: 200
-        });
-    } catch (error) {
-        console.error("Error deleting message:", error);
-        return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
-            error: "Failed to delete message"
-        }, {
-            status: 500
-        });
-    }
+    const id = request.nextUrl.searchPrams.get("id");
+    await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$mongodb$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"])();
+    await __TURBOPACK__imported__module__$5b$project$5d2f$models$2f$message$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].findByIdAndDelete(id);
+    return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
+        message: "thought is deleted"
+    }, {
+        status: 200
+    });
 }
 }}),
 
