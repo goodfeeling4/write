@@ -13,7 +13,7 @@ export default function Page() {
                 <a href="/addTopic/123">Add thoughts</a>
 
             </button>
-            <button className="bg-blue-700 text-white rounded p-1 px-4 hover:bg-blue-600 transition-colors mt-3 ">
+            <button className="bg-blue-700 text-white rounded p-2 px-4 hover:bg-blue-600 transition-colors mt-3 ">
                 <a href="/allNotes">see all thoughts</a>
             </button>
         </div>

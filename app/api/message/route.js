@@ -42,7 +42,7 @@ export async function GET() {
 
 
 export async function DELETE(request) {
-  const id = request.nextUrl.searchPrams.get("id");
+  const id = request.nextUrl.searchParams.get("id");
   await connectDB();
   await message.findByIdAndDelete(id);
   return NextResponse.json({ message: "thought is deleted"}, {status: 200});
