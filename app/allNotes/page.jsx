@@ -1,4 +1,6 @@
 import React from "react";
+import Deletebtn from "@/component/deletebtn";
+import Editbtn from "@/component/editbtn";
 
 async function getThoughts() {
   try {
@@ -22,23 +24,25 @@ export default async function Page() {
     <div className="flex flex-col gap-2">
       {thoughts.length === 0 ? (
         <div className="text-center text-gray-500 mt-8">No messages found.</div>
-      ) : (
-        thoughts.map((m) => (
-          <div
-            key={m._id || m.title}
-            className="flex justify-around mx-[10vw] m-2 p-2 dark:bg-gray-700 bg-gray-300 dark:text-blue-200 rounded-md"
-          >
+      ) : (thoughts.map((m) => (
+          <div key={m._id || m.title} className="flex justify-between mx-[10vw] m-2 p-4 dark:bg-gray-700 bg-gray-300 dark:text-blue-200 rounded-md ">
+
             <div>
-              <h1 className="text-[1.2rem] text-shadow-blue-500 font-extrabold">{m.title}</h1>
-              <div>{m.description}</div>
+              <div>
+                <h1 className="text-[1.2rem] text-shadow-blue-500 font-extrabold">{m.title}</h1>
+                <div>{m.description}</div>
+              </div>
             </div>
-            <div className="flex gap-8 ">
-              <button>edit</button>
-              <button>delete</button>
+            <div className="flex gap-8 items-center ">
+              <Editbtn />
+              <Deletebtn id={m._id} />
             </div>
+
           </div>
-        ))
+
+      ))
       )}
+
     </div>
   );
 }
