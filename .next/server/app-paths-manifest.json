@@ -1,6 +1,0 @@
-{
-  "/addTopic/[id]/page": "app/addTopic/[id]/page.js",
-  "/allNotes/page": "app/allNotes/page.js",
-  "/api/message/route": "app/api/message/route.js",
-  "/page": "app/page.js"
-}
