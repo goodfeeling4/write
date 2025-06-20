@@ -37,17 +37,25 @@ const getThoughts = async ()=>{
     }
 };
 async function Page() {
-    let message = await getThoughts();
+    const thoughts = await getThoughts();
+    if (!thoughts || !Array.isArray(thoughts)) {
+        console.error("No thoughts found or invalid format");
+        return {
+            props: {
+                thoughts: []
+            }
+        };
+    }
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: " flex flex-col gap-2 ",
-        children: message.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        children: thoughts.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "text-center text-gray-500 mt-8",
             children: "No messages found."
         }, void 0, false, {
             fileName: "[project]/app/allNotes/page.jsx",
-            lineNumber: 26,
+            lineNumber: 36,
             columnNumber: 15
-        }, this) : message.map((m)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        }, this) : thoughts.map((m)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "flex justify-around mx-[10vw] m-2 p-2  dark:bg-gray-700 bg-gray-300 dark:text-blue-200 rounded-md ",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -57,20 +65,20 @@ async function Page() {
                                 children: m.title
                             }, void 0, false, {
                                 fileName: "[project]/app/allNotes/page.jsx",
-                                lineNumber: 31,
+                                lineNumber: 41,
                                 columnNumber: 27
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 children: m.description
                             }, void 0, false, {
                                 fileName: "[project]/app/allNotes/page.jsx",
-                                lineNumber: 32,
+                                lineNumber: 42,
                                 columnNumber: 27
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/allNotes/page.jsx",
-                        lineNumber: 30,
+                        lineNumber: 40,
                         columnNumber: 23
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -80,31 +88,31 @@ async function Page() {
                                 children: "edit"
                             }, void 0, false, {
                                 fileName: "[project]/app/allNotes/page.jsx",
-                                lineNumber: 35,
+                                lineNumber: 45,
                                 columnNumber: 27
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                 children: "delete"
                             }, void 0, false, {
                                 fileName: "[project]/app/allNotes/page.jsx",
-                                lineNumber: 36,
+                                lineNumber: 46,
                                 columnNumber: 27
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/allNotes/page.jsx",
-                        lineNumber: 34,
+                        lineNumber: 44,
                         columnNumber: 23
                     }, this)
                 ]
             }, m._id || m.title, true, {
                 fileName: "[project]/app/allNotes/page.jsx",
-                lineNumber: 29,
+                lineNumber: 39,
                 columnNumber: 19
             }, this))
     }, void 0, false, {
         fileName: "[project]/app/allNotes/page.jsx",
-        lineNumber: 24,
+        lineNumber: 34,
         columnNumber: 7
     }, this);
 }
