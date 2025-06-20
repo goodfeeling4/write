@@ -69,7 +69,7 @@ export default function Page(prams) {
               name="description"
               value={formData.description}
               onChange={handleChange}
-              placeholder="Write your content here..."
+              placeholder={"Write your thoughts here...\nand every one can see it \nevery one can add their thoughts \nand also delete their thoughts"}
               className="border border-gray-300 rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 h-40"
               required
             ></textarea>
@@ -86,7 +86,7 @@ export default function Page(prams) {
             disabled={isSubmitting}
             className="bg-blue-500 text-white rounded p-2 hover:bg-blue-600 transition-colors disabled:bg-gray-400"
           >
-            {isSubmitting ? "Submitting..." : "Submit"}
+            {isSubmitting ? "Adding...your valuable thoughts" : "Add your thoughts"}
           </button>
         </form>
 
