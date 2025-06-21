@@ -34,7 +34,7 @@ const getThoughtById = async (id) => {
 
 export default async function Page({ params }) {
     try {
-        const { id } = params;
+        const { id } = await params;
         
         // Validate params
         if (!id) {

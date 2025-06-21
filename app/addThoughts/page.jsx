@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Page(prams) {
   const [formData, setFormData] = useState({
@@ -8,6 +9,7 @@ export default function Page(prams) {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [message, setMessage] = useState("");
+  const [goToAllThoughts, setGoToAllThoughts] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,6 +37,7 @@ export default function Page(prams) {
       setMessage("Error: Failed to submit form");
     } finally {
       setIsSubmitting(false);
+      setGoToAllThoughts(true);
     }
   };
 
@@ -47,9 +50,9 @@ export default function Page(prams) {
   
   return (
     <div>
-      <div className="flex flex-col items-center justify-center min-h-screen dark:bg-gray-700 bg-gray-100 p-4">
+      <div className="flex flex-col items-center justify-center  dark:bg-[#111827] bg-blue-300 h-[84vh] overflow-hidden p-4">
 
-        <form onSubmit={handleSubmit} className="flex flex-col dark:text-[#cc9ccc] text-[1.3rem] gap-4 sm:w-[50vw] sm:h-[80vh] w-[90vw] h-[80vh] ">
+        <form onSubmit={handleSubmit} className="flex flex-col dark:text-[#cc9ccc] text-[1.3rem] gap-1 sm:w-[50vw]  w-[90vw] ">
           <label className="flex flex-col ">
             <span className="font-medium">Title</span>
             <input
@@ -58,7 +61,7 @@ export default function Page(prams) {
               value={formData.title}
               onChange={handleChange}
               placeholder="Enter thoughts title"
-              className="border text-blue-600 placeholder:text-gray-400 border-gray-300 rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="border text-blue-600 placeholder:text-gray-400 dark:placeholder:text-gray-800 border-gray-500 dark:border-gray-300 rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
           </label>
@@ -70,13 +73,13 @@ export default function Page(prams) {
               value={formData.description}
               onChange={handleChange}
               placeholder={"Write your thoughts here...\nand every one can see it \nevery one can ADD, EDIT and DELETE their thoughts"}
-              className="border text-blue-600 placeholder:text-gray-400 border-gray-300 rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 h-40"
+              className="border text-blue-600 placeholder:text-gray-400 dark:placeholder:text-gray-800  border-gray-500 dark:border-gray-300  rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 h-40"
               required
             ></textarea>
           </label>
 
           {message && (
-            <div className={`p-2 rounded ${message.includes("Error") ? "bg-red-100 text-red-700" : "bg-green-100 text-green-700"}`}>
+            <div className={` rounded ${message.includes("Error") ? " text-red-700" : " text-green-700"}`}>
               {message}
             </div>
           )}
@@ -88,7 +91,10 @@ export default function Page(prams) {
             {isSubmitting ? "Adding...your valuable thoughts" : "Add your thoughts"}
           </button>
         </form>
-
+        {goToAllThoughts ? 
+          <Link href="/allThoughts" className=" m-2 p-2 w-2xs  rounded-l-full flex justify-center items-center bg-blue-300 text-blue-700 border-b-2 border-white ">
+            go to all thoughts 
+          </Link> : null}
       </div>
     </div>
   );
