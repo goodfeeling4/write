@@ -58,7 +58,7 @@ export default function Page(prams) {
               value={formData.title}
               onChange={handleChange}
               placeholder="Enter thoughts title"
-              className="border text-blue-600 border-gray-300 rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="border text-blue-600 placeholder:text-gray-400 border-gray-300 rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
           </label>
@@ -70,7 +70,7 @@ export default function Page(prams) {
               value={formData.description}
               onChange={handleChange}
               placeholder={"Write your thoughts here...\nand every one can see it \nevery one can ADD, EDIT and DELETE their thoughts"}
-              className="border text-blue-600 border-gray-300 rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 h-40"
+              className="border text-blue-600 placeholder:text-gray-400 border-gray-300 rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 h-40"
               required
             ></textarea>
           </label>

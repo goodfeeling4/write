@@ -2,22 +2,30 @@ import React from "react";
 import Deletebtn from "@/component/deletebtn";
 import Link from "next/link";
 
-async function getThoughts() {
-  try {
-    const res = await fetch(`${process.env.PORT_WRITE || ""}/api/message`, {
-      cache: "no-store",
-    });
-    if (!res.ok) {
-      throw new Error("Failed to fetch thoughts");
-    }
-    return res.json();
-  } catch (error) {
-    console.error("Error loading thoughts:", error);
-    return [];
-  }
-}
 
 export default async function Page() {
+  const getThoughts = async () => {
+    try {
+      const res = await fetch(`${process.env.PORT_WRITE || ""}/api/message`, {
+        cache: "no-store",
+      });
+      if (!res.ok) {
+        throw new Error("Failed to fetch thoughts");
+      }
+      const data = await res.json();
+      console.log(data);
+      return data;
+    } catch (error) {
+      console.error("Error loading thoughts:", error);
+      return [
+        {
+          title: "No messages found.",
+          description: "No messages found.",
+        }
+      ];
+    }
+  }
+
   const thoughts = await getThoughts();
 
   return (
