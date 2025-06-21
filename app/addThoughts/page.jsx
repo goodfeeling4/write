@@ -50,7 +50,7 @@ export default function Page(prams) {
   
   return (
     <div>
-      <div className="flex flex-col items-center justify-center  dark:bg-[#111827] bg-blue-300 h-[84vh] overflow-hidden p-4">
+      <div className="flex flex-col items-center  dark:bg-[#111827] bg-blue-300 h-[84vh] overflow-hidden p-4">
 
         <form onSubmit={handleSubmit} className="flex flex-col dark:text-[#cc9ccc] text-[1.3rem] gap-1 sm:w-[50vw]  w-[90vw] ">
           <label className="flex flex-col ">
@@ -92,7 +92,7 @@ export default function Page(prams) {
           </button>
         </form>
         {goToAllThoughts ? 
-          <Link href="/allThoughts" className=" m-2 p-2 w-2xs  rounded-l-full flex justify-center items-center bg-blue-300 text-blue-700 border-b-2 border-white ">
+          <Link href="/allThoughts" className=" m-2 p-2 w-2xs  rounded-l-full flex justify-center items-center dark:bg-blue-300 bg-blue-500 text-blue-700 border-b-2 border-white ">
             go to all thoughts 
           </Link> : null}
       </div>
