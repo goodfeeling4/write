@@ -18,7 +18,7 @@ export default function Deletebtn({id}){
     
     return (
         <div onClick={ remove}>
-        <img width="50" height="50" src="https://img.icons8.com/neon/96/delete.png" alt="delete"/>
+        <img className=" min-w-8 min-h-7 max-w-7 max-h-8" src="https://img.icons8.com/neon/96/delete.png" alt="delete"/>
         </div>
     );
 }

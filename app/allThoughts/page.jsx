@@ -33,7 +33,7 @@ export default async function Page() {
       {thoughts.length === 0 ? (
         <div className="text-center text-gray-500 mt-8">No messages found.</div>
       ) : (thoughts.map((m) => (
-        <div key={m._id || m.title} className="flex justify-between sm:mx-[10vw] mx-[5vw] m-2 p-4 dark:bg-gray-700 bg-gray-300 dark:text-blue-200 rounded-md ">
+        <div key={m._id || m.title} className="flex relative justify-between min-h-2 max-h-96 overflow-y-auto sm:mx-[10vw] mx-[5vw] m-2 p-4 dark:bg-gray-700 bg-gray-300 dark:text-blue-200 rounded-md ">
 
           <div>
             <div>
@@ -41,11 +41,11 @@ export default async function Page() {
               <div>{m.description}</div>
             </div>
           </div>
-          <div className="flex sm:gap-8 gap-2 items-center ">
+          <div className="flex sm:gap-8 gap-2 min-h-7  items-start absolute right-2 top-1 ">
             <Deletebtn id={m._id} />
             <Link href={`/editThoughts/${m._id}`}>
               <div className=" bg-linear-60 from-pink-800 to-blue-800 rounded-sm">
-                <img width="35" height="35" className="p-1  " src="https://img.icons8.com/3d-fluency/94/edit.png" alt="edit" />
+                <img className="p-1 min-w-7 min-h-7 max-w-7 max-h-7  " src="favicon.ico" alt="edit" />
               </div>
             </Link>
           </div>
