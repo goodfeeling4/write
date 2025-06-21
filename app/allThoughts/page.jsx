@@ -6,7 +6,7 @@ import Link from "next/link";
 export default async function Page() {
   const getThoughts = async () => {
     try {
-      const res = await fetch(`${process.env.PORT_WRITE || ""}/api/message`, {
+      const res = await fetch(`${process.env.PORT_WRITE || "http://localhost:3000"}/api/message`, {
         cache: "no-store",
       });
       if (!res.ok) {
