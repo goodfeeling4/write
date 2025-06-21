@@ -29,8 +29,8 @@ export default async function Page() {
   const thoughts = await getThoughts();
 
   return (
-    <div className="static flex justify-center items-center dark:bg-[#111827] bg-blue-300 w-full mx-auto  scrollbar-hide sm:scrollbar-thin ">
-      <div className="flex flex-col w-full  ">
+    <div className="static flex justify-center items-center  dark:bg-[#111827] bg-blue-300 w-full mx-auto">
+      <div className="flex flex-col w-full  min-h-[90vh]">
         {thoughts.length === 0 ? (
           <div className="text-center text-gray-500 mt-8">No messages found.</div>
         ) : (thoughts.map((m) => (
@@ -50,12 +50,11 @@ export default async function Page() {
                 </div>
               </Link>
             </div>
-
           </div>
 
         ))
         )}
-        <div className="flex justify-center items-center sm:gap-8 mb-[10vh] m-3 gap-2">
+        <div className="flex justify-center sticky bottom-0 items-center sm:gap-8 mb-[10vh] m-3 gap-2">
           <button className="bg-blue-900 rounded-l-full  text-white rounded p-2 px-4 hover:bg-blue-600 transition-colors mt-3 ">
             <a href="/">go to home</a>
           </button>
