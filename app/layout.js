@@ -13,13 +13,13 @@ export default function RootLayout({ children }) {
       <body
         className="dark:bg-black"
       >
-        <div className="flex  flex-around items-center justify-between ">
-          <a href="/" className=" text-3xl text-[#004FFF] m-4">write</a>
-          <button className="bg-blue-700 text-white rounded p-2 px-4 hover:bg-blue-600 transition-colors mt-3 ">
-                <a href="/allNotes">see all thoughts</a>
+        <div className="flex  flex-around items-center justify-between sm:m-4 m-3">
+          <a href="/" className=" sm:text-3xl text-2xl text-[#004FFF] ">write</a>
+          <button className="bg-blue-700 text-white rounded text-sm sm:p-2 p-1.5 px-3 hover:bg-blue-600 transition-colors ">
+                <a href="/allThoughts">see all thoughts</a>
             </button>
-          <button className="bg-blue-500 text-white rounded p-2 hover:bg-blue-600 transition-colors m-4">
-            <a href="/addTopic/123">Add thoughts</a>
+          <button className="bg-blue-500 text-white rounded text-sm sm:p-2 p-1.5 px-3 hover:bg-blue-600 transition-colors ">
+            <a href="/addThoughts">Add thoughts</a>
           </button>
         </div>
 

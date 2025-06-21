@@ -3,7 +3,7 @@
 ## Issues Fixed
 
 1. **API Route Syntax Error**: Fixed the return statement in `/app/api/message/route.js`
-2. **Form Functionality**: Added proper form handling and API integration to `/app/addTopic/[id]/page.jsx`
+2. **Form Functionality**: Added proper form handling and API integration to `/app/addThoughts/[id]/page.jsx`
 3. **MongoDB Connection**: Improved connection handling with caching
 4. **Error Handling**: Added proper error handling throughout the application
 
@@ -43,7 +43,7 @@ npm run dev
 
 ## How to Test
 
-1. Navigate to `http://localhost:3000/addTopic/any-id`
+1. Navigate to `http://localhost:3000/addThoughts/any-id`
 2. Fill in the title and content fields
 3. Click Submit
 4. Check the browser console and terminal for any errors
@@ -80,7 +80,7 @@ npm run dev
 write/
 ├── app/
 │   ├── api/message/route.js    # API endpoint for creating messages
-│   └── addTopic/[id]/page.jsx  # Form page for creating messages
+│   └── addThoughts/[id]/page.jsx  # Form page for creating messages
 ├── lib/mongodb.js              # MongoDB connection utility
 ├── models/message.js           # Message model schema
 └── .env.local                  # Environment variables (create this)

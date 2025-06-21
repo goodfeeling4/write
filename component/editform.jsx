@@ -1,22 +1,26 @@
 "use client";
 import { useState } from "react";
 
-export default function Page(prams) {
+export default function Editform( {id, oldTitle, oldDescription} ) {
+    
+    console.log(id);
+    console.log(oldTitle);
+    console.log(oldDescription);
   const [formData, setFormData] = useState({
-    title: "",
-    description: ""
+    title: oldTitle,
+    description: oldDescription
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isUpdating, setIsUpdating] = useState(false);
   const [message, setMessage] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
+    setIsUpdating(true);
     setMessage("");
 
     try {
-      const response = await fetch("/api/message", {
-        method: "POST",
+      const response = await fetch(`/api/message/${id}`, {
+        method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
@@ -24,17 +28,17 @@ export default function Page(prams) {
       });
 
       if (response.ok) {
-        setMessage("thoughts added successfully!");
+        setMessage("thoughts updated successfully!");
         setFormData({ title: "", description: "" });
       } else {
         const errorData = await response.json();
-        setMessage(`Error: ${errorData.error || "Failed to add thoughts"}`);
+        setMessage(`Error: ${errorData.error || "Failed to update thoughts"}`);
       }
     } catch (error) {
-      console.error("Error submitting form:", error);
+      console.error("Error Updating thoughts:", error);
       setMessage("Error: Failed to submit form");
     } finally {
-      setIsSubmitting(false);
+      setIsUpdating(false);
     }
   };
 
@@ -58,7 +62,7 @@ export default function Page(prams) {
               value={formData.title}
               onChange={handleChange}
               placeholder="Enter title"
-              className="border border-gray-300 rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="border border-gray-300 text-blue-600 rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
           </label>
@@ -69,8 +73,8 @@ export default function Page(prams) {
               name="description"
               value={formData.description}
               onChange={handleChange}
-              placeholder={"Write your thoughts here...\nand every one can see it \nevery one can add their thoughts \nand also delete their thoughts"}
-              className="border border-gray-300 rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 h-40"
+              placeholder={"Write your thoughts here...\nand every one can see it \nevery one can ADD their thoughts \nand also DELETE their thoughts"}
+              className="border text-blue-600 border-gray-300 rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 h-40"
               required
             ></textarea>
           </label>
@@ -83,10 +87,10 @@ export default function Page(prams) {
 
           <button
             type="submit"
-            disabled={isSubmitting}
+            disabled={isUpdating}
             className="bg-blue-500 text-white rounded p-2 hover:bg-blue-600 transition-colors disabled:bg-gray-400"
           >
-            {isSubmitting ? "Adding...your valuable thoughts" : "Add your thoughts"}
+            {isUpdating ? "updating...your valuable thoughts" : "update your thoughts"}
           </button>
         </form>
 
