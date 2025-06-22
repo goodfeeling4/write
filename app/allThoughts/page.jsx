@@ -42,13 +42,27 @@ export default async function Page() {
                 <div className="dark:text-gray-400 text-black">{m.description}</div>
               </div>
             </div>
-            <div className="flex sm:gap-4 gap-2 items-start flex-shrink-0">
-              <Deletebtn id={m._id} />
-              <Link href={`/editThoughts/${m._id}`}>
-                <div className="bg-gradient-to-r from-pink-800 to-blue-800 rounded-sm p-1">
-                  <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/create-new.png" alt="create-new" />
-                </div>
-              </Link>
+            <div className="flex-col gap-2">
+              <div className="flex sm:gap-4 gap-2 items-start flex-shrink-0">
+                <Deletebtn id={m._id} />
+                <Link href={`/editThoughts/${m._id}`}>
+                  <div className="bg-gradient-to-r from-pink-800 to-blue-800 rounded-sm p-1">
+                    <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/create-new.png" alt="create-new" />
+                  </div>
+                </Link>
+              </div>
+              <div className="flex-col gap-2">
+                <p className="text-gray-500 text-sm">
+                <b> created on</b>  {m.createdAt.split("T")[0]}
+                </p>
+                  {m.updatedAt.split("T")[0] === m.createdAt.split("T")[0] ? (
+                    null
+                  ) : (
+                    <p className="text-gray-500 text-sm">
+                      <b>updated on</b> {m.updatedAt.split("T")[0]}
+                    </p>
+                  )}
+              </div>
             </div>
           </div>
 
@@ -66,6 +80,7 @@ export default async function Page() {
     </div>
   );
 }
+
 
 
 
