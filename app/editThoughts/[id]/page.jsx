@@ -1,4 +1,7 @@
-import Editform from "@/component/editform";
+import { lazy } from "react";
+
+// import Editform from "@/component/editform";
+const Editform = lazy(() => import("@/component/editform"));
 
 const getThoughtById = async (id) => {
     try {
@@ -7,7 +10,7 @@ const getThoughtById = async (id) => {
             throw new Error("Invalid thought ID");
         }
 
-        const res = await fetch(`${process.env.PORT_WRITE || "http://localhost:3000"}/api/message/${id}`, {
+        const res = await fetch(`${process.env.PORT_WRITE}/api/message/${id}`, {
             cache: "no-store",
         });
 
@@ -19,7 +22,7 @@ const getThoughtById = async (id) => {
         }
 
         const data = await res.json();
-        
+
         // Check if thought exists
         if (!data || !data._id) {
             throw new Error("Thought not found");
@@ -35,7 +38,6 @@ const getThoughtById = async (id) => {
 export default async function Page({ params }) {
     try {
         const { id } = await params;
-        
         // Validate params
         if (!id) {
             return (
@@ -44,9 +46,7 @@ export default async function Page({ params }) {
                 </div>
             );
         }
-
         const thought = await getThoughtById(id);
-
         if (!thought) {
             return (
                 <div className="flex items-center justify-center min-h-screen">
@@ -54,9 +54,7 @@ export default async function Page({ params }) {
                 </div>
             );
         }
-        
         const { title, description } = thought;
-
         return (
             <div>
                 <Editform id={id} oldTitle={title} oldDescription={description} />
@@ -64,10 +62,5 @@ export default async function Page({ params }) {
         );
     } catch (error) {
         console.error("Error in edit page:", error);
-        return (
-            <div className="flex items-center justify-center min-h-screen">
-                <div className="text-red-500 text-xl">Something went wrong</div>
-            </div>
-        );
     }
 }
