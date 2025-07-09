@@ -17,11 +17,34 @@ export async function POST(request) {
   }
 }
 
-export async function GET() {
+export async function GET(request) {
   try {
     await connectDB();
-    const messages = await message.find();
-    return NextResponse.json(messages, {status: 200});
+    
+    // Get pagination parameters from URL
+    const { searchParams } = new URL(request.url);
+    const page = parseInt(searchParams.get('page')) || 1;
+    const limit = parseInt(searchParams.get('limit')) || 10;
+    const skip = (page - 1) * limit;
+    
+    // Get total count for pagination info
+    const total = await message.countDocuments();
+    
+    // Get paginated messages
+    const messages = await message.find()
+      .sort({ createdAt: -1 }) // Sort by newest first
+      .skip(skip)
+      .limit(limit);
+    
+    return NextResponse.json({
+      thoughts: messages,
+      pagination: {
+        page,
+        limit,
+        total,
+        hasMore: skip + limit < total
+      }
+    }, {status: 200});
   } catch (error) {
     console.error("Error fetching messages:", error);
     return NextResponse.json({error: "Failed to fetch messages"}, {status: 500});

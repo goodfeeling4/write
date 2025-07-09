@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 
-export default function Page(prams) {
+export default function Page() {
   const [formData, setFormData] = useState({
     title: "",
     description: ""
@@ -40,7 +40,6 @@ export default function Page(prams) {
       setGoToAllThoughts(true);
     }
   };
-
   const handleChange = (e) => {
     setFormData({
       ...formData,
