@@ -49,7 +49,7 @@ export default function Page() {
   
   return (
     <div>
-      <div className="flex flex-col items-center  dark:bg-[#111827] bg-blue-300 h-[84vh] overflow-hidden p-4">
+      <div className="flex flex-col items-center  dark:bg-[#111827] bg-blue-300 h-[90vh]  p-4">
 
         <form onSubmit={handleSubmit} className="flex flex-col dark:text-[#cc9ccc] text-[1.3rem] gap-1 sm:w-[50vw]  w-[90vw] ">
           <label className="flex flex-col ">

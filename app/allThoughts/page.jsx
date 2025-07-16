@@ -119,7 +119,7 @@ export default function Page() {
           </div>
         )}
 
-        <div className="flex justify-center sticky bottom-0 items-center sm:gap-8 mb-[10vh] m-3 gap-2">
+        <div className="flex justify-center sticky bottom-0 items-center sm:gap-0.5 mb-[10vh] m-3 gap-2">
           <button className="bg-blue-900 rounded-l-full text-white rounded p-2 px-4 hover:bg-blue-600 transition-colors mt-3">
             <a href="/">go to home</a>
           </button>

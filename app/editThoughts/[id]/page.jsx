@@ -1,7 +1,5 @@
-import { lazy } from "react";
 
-// import Editform from "@/component/editform";
-const Editform = lazy(() => import("@/component/editform"));
+import Editform from "@/component/editform";
 
 const getThoughtById = async (id) => {
     try {
@@ -13,16 +11,17 @@ const getThoughtById = async (id) => {
         const res = await fetch(`${process.env.PORT_WRITE}/api/message/${id}`, {
             cache: "no-store",
         });
-
+        console.log("Response status:", res.status); // Log the response status
         if (!res.ok) {
             if (res.status === 404) {
-                throw new Error("Thought not found");
+                throw new Error("Thought not found BY RESPONSE");
             }
+            
             throw new Error("Failed to fetch thought");
         }
 
         const data = await res.json();
-
+        
         // Check if thought exists
         if (!data || !data._id) {
             throw new Error("Thought not found");
